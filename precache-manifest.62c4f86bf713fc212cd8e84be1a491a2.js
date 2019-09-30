@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e4db39dc66f960f5d323b021fe7110f8",
+    "revision": "21221be887164eaf8a3a23fae9c4dc7f",
     "url": "/Wisordme/Pokedex/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Wisordme/Pokedex/static/css/main.1f07d5ec.chunk.css"
   },
   {
-    "revision": "fd3f3237f5f97e8c6006",
-    "url": "/Wisordme/Pokedex/static/js/2.785f69f2.chunk.js"
+    "revision": "b5d3832382d984587beb",
+    "url": "/Wisordme/Pokedex/static/js/2.5b094857.chunk.js"
   },
   {
     "revision": "ed67b07cfa823b28a774",
