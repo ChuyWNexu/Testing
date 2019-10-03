@@ -10,12 +10,20 @@ var req = [];
 var promises = [];
 
 for (var i = 0; i < buttons.length; i++){
+<<<<<<< HEAD
     // var current = document.getElementsByClassName("active");
     buttons[i].addEventListener('click', function (){
+=======
+      buttons[i].addEventListener('click', function (){
+>>>>>>> gh-pages
       current = document.getElementsByClassName('active')
       current[0].classList.remove('active');
       this.classList.add('active')
       regionId=parseInt(this.dataset.id);
+<<<<<<< HEAD
+=======
+      load();
+>>>>>>> gh-pages
     })
 }
 // var req = [];
@@ -25,7 +33,11 @@ for (var i = 0; i < buttons.length; i++){
 
 //  ------------- API - REQUEST ----------------
 
+<<<<<<< HEAD
 (async function load(){
+=======
+async function load(){
+>>>>>>> gh-pages
 
   async function getData(url){
     const response = await fetch(url);
@@ -44,6 +56,7 @@ for (var i = 0; i < buttons.length; i++){
 
   let {
     pokemon_entries: PokemonList
+<<<<<<< HEAD
   } = await getData(`${pokedexUrl}`);
 
   console.log(PokemonList);
@@ -58,6 +71,28 @@ for (var i = 0; i < buttons.length; i++){
     .all(promises)
     .then(function (pokemon) {
       debugger
+=======
+  } = await getData(pokedexUrl);
+
+  console.log(PokemonList);
+  debugger
+  await PokemonList.forEach(async (pkmn) => {
+    var pokemon = await getData(`${pkmn.pokemon_species.url}`)
+    req.push(`${BASE_URL}pokemon/${pokemon.id}`)
+    console.log(req)
+  })
+  console.log(req)
+  req.sort()
+  debugger
+  promises = req.map( async url => { 
+    return await fetch(url);
+  });
+  console.log(promises)
+  Promise
+    .all(req)
+    .then(function (pokemon) {
+      console.log("hi")
+>>>>>>> gh-pages
       sprites = pokemon.map( id => [id.name, id.sprites.front_default, id.id]);
       sprites.forEach( (element) =>{
         const HTMLString = pokemonItemTemplate(element[1], element[0], element[2]);
@@ -94,4 +129,8 @@ for (var i = 0; i < buttons.length; i++){
       console.log(pokemon.pokemon_species.name)
   }
 
+<<<<<<< HEAD
 })()  ;
+=======
+};
+>>>>>>> gh-pages
