@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+var GhPagesWebpackPlugin = require('gh-pages-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -48,9 +49,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html')
+    }),
+    new GhPagesWebpackPlugin({
+      path: './public',
+      options: {
+        message: 'Update Home Page',
+      }
+    }),
+    new webpack.DllReferencePlugin({
+      manifest: require('./modules-manifest.json')
     })
-    // new webpack.DllReferencePlugin({
-    //   manifest: require('./modules-manifest.json')
-    // })
   ],
 }
