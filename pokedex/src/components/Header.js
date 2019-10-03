@@ -8,7 +8,7 @@ class Header extends React.Component {
       <header className="header">
         <nav className="menu">
           <ul>
-            <li className="is-active"><Link to="/regions" className="Region">Region</Link></li>
+            <li className="is-active"><Link to="/generations/1" className="Generation">Generations</Link></li>
             <li><Link to="number" className="Number">Number</Link></li>
             <li><Link to="type" className="Type">Type</Link></li>
             <li><Link to="moves" className="Moves">Moves</Link></li>
