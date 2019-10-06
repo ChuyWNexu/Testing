@@ -3,6 +3,8 @@ import React from 'react';
 import "./styles/Pokemon.css"
 import PokemonListContainer from './PokemonListContainer';
 import Pokemon from './Pokemon'
+import Modal from './Modal'
+
 
 class PokemonList extends React.Component {
 
@@ -11,9 +13,20 @@ class PokemonList extends React.Component {
     this.state = {
       pokemon: [],
       loading: true,
-      promises: []
+      promises: [],
+      modalIsOpen: false
     }
   }
+
+  // handleCloseModal() {
+  //   this.setState({ modalIsOpen: false })
+  //   console.log("close")
+  // }
+
+  // handleOpenModal() {
+  //   this.setState({ modalIsOpen: true })
+  //   console.log(this)
+  // }
 
   componentDidMount() {
     const BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
@@ -54,6 +67,7 @@ class PokemonList extends React.Component {
           {this.state.pokemon.map(pokemon => {
             return <Pokemon id={pokemon.id} name={pokemon.name} src={pokemon.sprites.front_default} key={pokemon.id} />
           })}
+          {/* <Modal isOpen={this.state.modalIsOpen} onClose={this.handleCloseModal.bind(this)}> Pokemon </Modal> */}
         </ul>
       )
     }

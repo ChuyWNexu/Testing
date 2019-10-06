@@ -2,18 +2,17 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-var GhPagesWebpackPlugin = require('gh-pages-webpack-plugin');
 
 module.exports = {
   entry: {
     App: path.resolve(__dirname, 'src/index.js'),
   },
-  mode: 'production',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name].js',
-    publicPath: 'dist/',
-    // chunkFilename: 'js/[id].[chunkhash].js' 
+    publicPath: 'https://wisordme.github.io/Pokedex/',
+    chunkFilename: 'js/[id].[chunkhash].js'
   },
   module: {
     rules: [
@@ -48,13 +47,7 @@ module.exports = {
       chunkFilename: 'css/[id].css'
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public/index.html')
-    }),
-    new GhPagesWebpackPlugin({
-      path: './public',
-      options: {
-        message: 'Update Home Page',
-      }
+      template: path.resolve(__dirname, './index.html')
     }),
     new webpack.DllReferencePlugin({
       manifest: require('./modules-manifest.json')
