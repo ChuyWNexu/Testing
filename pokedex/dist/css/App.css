@@ -102,6 +102,39 @@ nav ul li:hover{
 .pokemon-name{
   text-transform: capitalize;
 }
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Modal__container {
+  position: relative;
+  background-color: #ffffff;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+}
+
+.Modal__container__card{
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.card__moves{
+  grid-column-start:2;
+  grid-column-end: -1;
+}
 html, body{
   margin: 0;
   padding: 0;

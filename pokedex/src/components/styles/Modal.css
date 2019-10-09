@@ -14,30 +14,20 @@
   position: relative;
   background-color: #ffffff;
   top: 10%;
-  width: 60%;
+  width: 80%;
   height: 80%;
 }
 
 .Modal__container__card{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: repeat(3, 1fr);
   height: 100%;
-}
-.Modal__close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: 0;
-  background-color: #F5F5F5;
-  padding: 0.5rem 1rem;
+  justify-items: center;
+  align-items: center;
 }
 
-.Modal__close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: 0;
-  background-color: #F5F5F5;
-  padding: 0.5rem 1rem;
+.card__moves{
+  grid-column-start:2;
+  grid-column-end: -1;
 }

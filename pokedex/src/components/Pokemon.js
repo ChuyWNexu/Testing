@@ -11,7 +11,7 @@ class Pokemon extends React.Component {
     }
   }
   onClick() {
-    console.log(this.props.id)
+    console.log(this.props.data.id)
   }
 
   handleCloseModal() {
@@ -27,11 +27,11 @@ class Pokemon extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <li className="pokemon-item" onClick={this.handleOpenModal.bind(this)} key={this.props.id}>
-          <img src={this.props.src} alt="" />
-          <p className="pokemon-name">{this.props.name}</p>
+        <li className="pokemon-item" onClick={this.handleOpenModal.bind(this)} key={this.props.data.id}>
+          <img src={this.props.data.sprites.front_default} alt="" />
+          <p className="pokemon-name">{this.props.data.name}</p>
         </li>
-        <Modal isOpen={this.state.modalIsOpen} onClose={this.handleCloseModal.bind(this)}> {this.props.name} </Modal>
+        <Modal data={this.props.data} isOpen={this.state.modalIsOpen} onClose={this.handleCloseModal.bind(this)} />
       </React.Fragment>
     )
   }

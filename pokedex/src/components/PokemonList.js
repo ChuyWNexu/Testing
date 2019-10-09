@@ -18,16 +18,6 @@ class PokemonList extends React.Component {
     }
   }
 
-  // handleCloseModal() {
-  //   this.setState({ modalIsOpen: false })
-  //   console.log("close")
-  // }
-
-  // handleOpenModal() {
-  //   this.setState({ modalIsOpen: true })
-  //   console.log(this)
-  // }
-
   componentDidMount() {
     const BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
     let pokemonUrlsList = [];
@@ -65,9 +55,8 @@ class PokemonList extends React.Component {
       return (
         <ul className="pokemon-list">
           {this.state.pokemon.map(pokemon => {
-            return <Pokemon id={pokemon.id} name={pokemon.name} src={pokemon.sprites.front_default} key={pokemon.id} />
+            return <Pokemon data={pokemon} />
           })}
-          {/* <Modal isOpen={this.state.modalIsOpen} onClose={this.handleCloseModal.bind(this)}> Pokemon </Modal> */}
         </ul>
       )
     }

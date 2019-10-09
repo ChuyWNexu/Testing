@@ -18,6 +18,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border-radius: 50px;
 }
 
 .pokemon-name{
