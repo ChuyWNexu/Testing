@@ -1,0 +1,157 @@
+.header{
+  height: 200px;
+  width: 100%;
+  background: red;
+  margin-bottom: 64px;
+}
+
+nav{
+  height: 100%;
+}
+
+nav ul{
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 10%;
+  padding-right: 10%;
+  align-items: flex-end;
+}
+
+nav ul li{
+  display: inline-block;
+  background: white;
+  width: 200px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 0 0;
+  border-bottom: solid rgb(128, 54, 54) 5px;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  padding: 26px 65px;
+}
+
+nav ul li:hover{
+  position: relative;
+  height: 100px;
+}
+
+.menu ul .is-active{
+  border-bottom: solid rgb(23, 11, 184) 5px;
+}
+
+.menu ul .is-active a{
+  font-weight: bold;
+}
+.options {
+  display: grid;
+  grid-template-columns: repeat(4,250px);
+  justify-content: space-evenly;
+  gap: 16px 8px;
+  padding-bottom: 16px;
+}
+
+.options button{
+  height: 80px;
+  width: 250px;
+  color: black;
+  font-size: 24px;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+}
+
+.options .active{
+  background: #F4BCBC;
+  font-weight: bold;
+}
+.options button:hover{
+  background: #F4BCBC;
+}
+.pokemon-list{
+  padding: 0;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  gap: 12px 10px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.pokemon-item{
+  background: lightblue;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pokemon-name{
+  text-transform: capitalize;
+}
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Modal__container {
+  position: relative;
+  background-color: #ffffff;
+  top: 10%;
+  width: 60%;
+  height: 80%;
+}
+
+.Modal__container__card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.Modal__close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  background-color: #F5F5F5;
+  padding: 0.5rem 1rem;
+}
+
+.Modal__close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  background-color: #F5F5F5;
+  padding: 0.5rem 1rem;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  background: rgb(247, 219, 219);
+}
