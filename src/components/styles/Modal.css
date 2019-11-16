@@ -31,3 +31,24 @@
   grid-column-start:2;
   grid-column-end: -1;
 }
+
+.card__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card__container__name{
+  text-transform: capitalize;
+}
+
+.Modal__CloseButton{
+  background-color: rgb(214, 36, 36);
+  position: relative;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  left: calc(100% - 35px);
+  top: 5px;
+}

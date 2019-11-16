@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Options from "../components/Options"
@@ -6,9 +6,19 @@ import PokemonList from "../components/PokemonList"
 
 import "./styles/Global.css"
 
-class RegionPage extends React.Component {
+interface IProps {
 
-  constructor(props) {
+}
+interface IState {
+  selected: string,
+  initial: number,
+  final: number,
+  loading: boolean,
+}
+
+class RegionPage extends React.Component<IProps, IState> {
+
+  constructor(props: Readonly<{}>) {
     super(props);
     this.state = {
       selected: 'Kanto',
@@ -18,7 +28,7 @@ class RegionPage extends React.Component {
     }
   }
 
-  async pokedexIndex(value) {
+  async pokedexIndex(value: string) {
     console.log("Index" + value)
     this.setState({ selected: value, loading: true })
     if (value === 'Kanto') {
@@ -44,15 +54,15 @@ class RegionPage extends React.Component {
     }
   }
 
-  handleClick = async (value) => {
+  handleClick = async (value: string) => {
     console.log("click")
     console.log(value)
     await this.pokedexIndex(value)
     console.log(this.state.initial)
-    await this.setState({ loading: false })
+    this.setState({ loading: false })
   }
 
-  isActive = (value) => {
+  isActive = (value: string) => {
     return 'btn ' + ((value === this.state.selected) ? 'active' : 'default');
   }
 

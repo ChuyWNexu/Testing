@@ -5,28 +5,41 @@ import PokemonListContainer from './PokemonListContainer';
 import Pokemon from './Pokemon'
 import Modal from './Modal'
 
+interface PokemonListProps {
+  initialNumber: number,
+  finalNumber: number
+}
+interface PokemonListState {
+  pokemon: Array<Promise<any>>,
+  loading: boolean,
+  promises: Array<object>,
+  modalIsOpen: boolean
+}
 
-class PokemonList extends React.Component {
+class PokemonList extends React.Component<PokemonListProps, PokemonListState>{
 
-  constructor(props) {
+  constructor(props: Readonly<PokemonListProps>) {
     super(props);
     this.state = {
       pokemon: [],
       loading: true,
-      promises: [],
-      modalIsOpen: false
+      modalIsOpen: false,
+      promises: []
     }
   }
 
   componentDidMount() {
-    const BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
-    let pokemonUrlsList = [];
+    const BASE_URL: string = "https://pokeapi.co/api/v2/pokemon/"
+    let pokemonUrlsList: Array<string> = [];
     const pokemonList = [];
+    // Se crean los index para cada url
     for (var i = this.props.initialNumber; i <= this.props.finalNumber; i++) {
       pokemonUrlsList.push(`${BASE_URL}${i}/`);
     }
-    this.state.promises = pokemonUrlsList.map((url) => fetch(url).then(response => response.json()))
-    Promise.all(this.state.promises)
+    // Se crean las promesas
+    let Promises: Array<Promise<object>> = pokemonUrlsList.map((url) => fetch(url).then(response => response.json()))
+    // Se obtiene los valores de las promesas
+    Promise.all(Promises)
       .then(results => {
         results.forEach(data => {
           pokemonList.push(data)
@@ -35,18 +48,6 @@ class PokemonList extends React.Component {
       })
       .catch(error => {
         console.log(error)
-        pokemonUrlsList = []
-        for (var i = this.props.initialNumber; i <= this.props.finalNumber; i++) {
-          pokemonUrlsList.push(`${BASE_URL}${i}`);
-        }
-        this.state.promises = pokemonUrlsList.map((url) => fetch(url).then(response => response.json()))
-        Promise.all(this.state.promises)
-          .then(results => {
-            results.forEach(data => {
-              pokemonList.push(data)
-            })
-            this.setState({ pokemon: pokemonList })
-          })
       })
   }
 
@@ -54,8 +55,8 @@ class PokemonList extends React.Component {
     if (this.state.pokemon.length > 0) {
       return (
         <ul className="pokemon-list">
-          {this.state.pokemon.map(pokemon => {
-            return <Pokemon data={pokemon} />
+          {this.state.pokemon.map(pokemonInfo => {
+            return <Pokemon data={pokemonInfo} />
           })}
         </ul>
       )

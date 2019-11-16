@@ -1,6 +1,7 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Layout from "./Layout.js"
+import { BrowserRouter } from "react-router-dom";
+import { Switch, Route } from "react-router";
+import Layout from "./Layout"
 import RegionPage from "../pages/RegionPage"
 import "../pages/styles/Global.css"
 

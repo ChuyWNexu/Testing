@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom';
 
 import "./styles/Options.css"
 
-class Options extends React.Component {
+interface OptionsProps {
+  onClick: (value: string) => void,
+  isActive: (value: string) => string
+}
+
+interface OptionsState {
+}
+
+class Options extends React.Component<OptionsProps, OptionsState> {
 
   constructor(props) {
     super(props)
